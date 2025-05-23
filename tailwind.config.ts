@@ -57,9 +57,6 @@ const config: Config = {
         assistant: ["var(--font-assistant)"],
         geist: ["var(--font-geist)"],
         "geist-mono": ["var(--font-geist-mono)"],
-        "neue-haas": ["var(--font-neue-haas)"],
-        montreal: ["var(--font-montreal)"],
-        "din-condensed": ["var(--font-din-condensed)"],
       },
       borderRadius: {
         lg: "var(--radius)",
