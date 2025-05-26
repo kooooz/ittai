@@ -8,91 +8,82 @@ import { useState } from "react"
 
 const projects = [
   {
-    id: "01",
-    title: "Mid Century Kitchen",
-    image: "/ittai-project-01-mid-century-kitchen.png",
+    id: 1,
+    title: "Modern Kitchen Design",
+    description: "A contemporary kitchen featuring natural stone countertops and minimalist design elements.",
+    image: "/ittai-project-01.png",
   },
   {
-    id: "02",
-    title: "Minimalistic Block",
-    image: "/ittai-project-02-minimalistic-block.png",
+    id: 2,
+    title: "Luxury Bathroom Renovation",
+    description: "Complete bathroom transformation with premium materials and custom fixtures.",
+    image: "/ittai-project-02.png",
   },
   {
-    id: "03",
-    title: "Grey Stone Block",
-    image: "/ittai-project-03-grey-stone-block.png",
+    id: 3,
+    title: "Residential Interior Project",
+    description: "Comprehensive interior design project showcasing our attention to detail and craftsmanship.",
+    image: "/ittai-project-03.png",
   },
   {
-    id: "04",
-    title: "Loft Style Kitchen",
-    image: "/ittai-project-04-loft-style-kitchen.png",
-  },
-  {
-    id: "05",
-    title: "Rough Stone Block Kitchen",
-    image: "/ittai-project-03-rough-stone-block-kitchen.png",
+    id: 4,
+    title: "Commercial Space Design",
+    description: "Modern office space featuring custom stone elements and innovative design solutions.",
+    image: "/ittai-project-04.png",
   },
 ]
 
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1))
+  const nextProject = () => {
+    setCurrentIndex((prev) => (prev + 1) % projects.length)
   }
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1))
+  const prevProject = () => {
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length)
   }
+
+  const currentProject = projects[currentIndex]
 
   return (
-    <div className="relative min-h-screen flex flex-col">
-      {/* Header */}
+    <div className="min-h-screen flex flex-col">
       <Header />
+      <main className="flex-grow">
+        <div className="max-w-4xl mx-auto px-6 py-16">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-geist mb-4">{currentProject.title}</h1>
+            <p className="text-lg text-[#4F4F4F]">{currentProject.description}</p>
+          </div>
 
-      {/* Projects Carousel */}
-      <section className="relative h-screen">
-        <div className="absolute inset-0">
-          <Image
-            src={projects[currentIndex].image}
-            alt={projects[currentIndex].title}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
+          <div className="relative aspect-[3/2] mb-12">
+            <Image
+              src={currentProject.image}
+              alt={currentProject.title}
+              fill
+              className="object-cover rounded-lg"
+              priority
+            />
+          </div>
 
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center text-white p-6 max-w-3xl">
-            <div className="text-xs font-medium mb-2 font-geist-mono tracking-wide">
-              {projects[currentIndex].id}
-            </div>
-            <h1 className="text-[45px] font-inter font-medium mb-6 leading-tight tracking-wide uppercase">
-              {projects[currentIndex].title}
-            </h1>
+          <div className="flex justify-center gap-4">
+            <button
+              onClick={prevProject}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={nextProject}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Next project"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
-
-        {/* Navigation Arrows */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-8 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-colors"
-          aria-label="Previous project"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-
-        <button
-          onClick={handleNext}
-          className="absolute right-8 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-colors"
-          aria-label="Next project"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-      </section>
-
-      {/* Footer */}
+      </main>
       <Footer />
     </div>
   )

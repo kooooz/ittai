@@ -6,77 +6,57 @@ import Header from "@/components/header"
 
 export default function Company() {
   return (
-    <div className="relative min-h-screen flex flex-col">
-      {/* Hero Section */}
-      <section className="relative h-screen">
-        {/* Hero Background Image */}
-        <div className="absolute inset-0 z-0">
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative h-[60vh]">
           <Image
             src="/ittai-team-01.png"
             alt="Our Team"
             fill
-            priority
             className="object-cover"
+            priority
           />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
+        </section>
 
-        {/* Header */}
-        <Header />
-
-        {/* Hero Content */}
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center text-white p-6 max-w-3xl">
-            <h1 className="text-[45px] font-inter font-medium mb-6 leading-tight tracking-wide uppercase">
-              Our Story
-            </h1>
-            <p className="text-base font-geist-mono font-light tracking-tight">
-              A journey of passion and precision
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Content Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-bold font-inter">Our Philosophy</h2>
+        {/* Content Section */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h1 className="text-4xl font-geist mb-6">Our Philosophy</h1>
+              <p className="text-lg text-[#4F4F4F] max-w-3xl mx-auto">
+                We believe in creating timeless spaces that blend natural materials with contemporary design, 
+                focusing on quality craftsmanship and attention to detail.
+              </p>
             </div>
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Design Excellence</h3>
-                <p className="text-[#4F4F4F] font-geist">
-                  We believe in the power of exceptional design. Every project begins with a deep understanding of
-                  space, function, and the unique character of natural materials. Our German design team brings
-                  precision and innovation to every concept.
+
+            <div className="grid md:grid-cols-3 gap-12">
+              <div className="text-center">
+                <h2 className="text-xl font-geist mb-4">Design Excellence</h2>
+                <p className="text-[#4F4F4F]">
+                  Our designs are characterized by clean lines, thoughtful proportions, and a harmonious balance 
+                  between form and function.
                 </p>
               </div>
-
-              <div>
-                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Artisanal Craft</h3>
-                <p className="text-[#4F4F4F] font-geist">
-                  Our Italian craftspeople combine centuries of tradition with modern techniques. Each piece is
-                  carefully shaped, finished, and perfected by hand, ensuring that every detail meets our exacting
-                  standards.
+              <div className="text-center">
+                <h2 className="text-xl font-geist mb-4">Artisanal Craft</h2>
+                <p className="text-[#4F4F4F]">
+                  We combine traditional craftsmanship with modern techniques to create unique, high-quality 
+                  interior solutions.
                 </p>
               </div>
-
-              <div>
-                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Material Integrity</h3>
-                <p className="text-[#4F4F4F] font-geist">
-                  We work exclusively with the finest natural stones, selected for their unique character and
-                  enduring beauty. Each material tells its own story, and we honor that story in every piece we
-                  create.
+              <div className="text-center">
+                <h2 className="text-xl font-geist mb-4">Material Integrity</h2>
+                <p className="text-[#4F4F4F]">
+                  We carefully select and work with premium materials, ensuring each element contributes to 
+                  the overall quality and longevity of our projects.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Footer */}
+        </section>
+      </main>
       <Footer />
     </div>
   )
