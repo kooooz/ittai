@@ -20,7 +20,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="text-center text-white p-6 max-w-3xl">
-            <h1 className="text-[45px] font-inter font-medium mb-6 leading-tight tracking-wide">
+            <h1 className="text-[45px] font-inter font-medium mb-6 leading-tight tracking-wide uppercase">
               Custom build single piece kitchen blocks
             </h1>
             <p className="text-base font-geist-mono font-light tracking-tight">

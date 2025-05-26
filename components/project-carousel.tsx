@@ -69,18 +69,20 @@ export default function ProjectCarousel() {
         <div className="flex-1 flex gap-8">
           {getVisibleProjects().map((project) => (
             <div key={project.id} className="flex-1">
-              <div className="relative aspect-[4/3] mb-4">
+              <div className="relative aspect-[4/3] mb-4 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={project.id === "01"}
                 />
               </div>
-              <div className="text-xs font-medium mb-2 font-geist-mono tracking-wide">
+              <div className="text-xs font-medium mb-2 font-geist-mono tracking-wide text-[#4F4F4F]">
                 {project.id}
               </div>
-              <h3 className="text-sm font-medium font-inter">{project.title}</h3>
+              <h3 className="text-sm font-medium font-inter text-[#4F4F4F]">{project.title}</h3>
             </div>
           ))}
         </div>
