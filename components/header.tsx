@@ -25,8 +25,11 @@ export default function Header() {
   }, [])
 
   const isHomePage = pathname === "/"
-  const textColor = isHomePage && !isScrolled ? "text-white" : "text-[#4F4F4F]"
-  const logoColor = isHomePage && !isScrolled ? "white" : "#4F4F4F"
+  const isMaterialPage = pathname === "/material"
+  const isCraftsmanshipPage = pathname === "/craftsmanship"
+  const shouldShowWhiteText = (isHomePage || isMaterialPage || isCraftsmanshipPage) && !isScrolled
+  const textColor = shouldShowWhiteText ? "text-white" : "text-[#4F4F4F]"
+  const logoColor = shouldShowWhiteText ? "white" : "#4F4F4F"
   const bgColor = isScrolled ? "bg-white shadow-sm" : "bg-transparent"
 
   return (

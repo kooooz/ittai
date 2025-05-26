@@ -52,12 +52,11 @@ export default function Projects() {
       <Header />
       <main className="flex-grow">
         <div className="max-w-4xl mx-auto px-6 py-16">
-          <div className="text-center mb-12">
-            <div className="text-sm font-geist-mono mb-4">{currentProject.id}</div>
-            <h1 className="text-4xl font-geist mb-4">{currentProject.title}</h1>
+          <div className="text-center mb-8">
+            <div className="text-xs font-geist-mono mb-4">{currentProject.id}</div>
           </div>
 
-          <div className="relative aspect-[3/2] mb-12">
+          <div className="relative aspect-[3/2] mb-8">
             <Image
               src={currentProject.image}
               alt={currentProject.title}
@@ -65,6 +64,10 @@ export default function Projects() {
               className="object-cover rounded-lg"
               priority
             />
+          </div>
+
+          <div className="text-center mb-12">
+            <h1 className="text-sm font-geist-mono">{currentProject.title}</h1>
           </div>
 
           <div className="flex justify-center gap-4">
