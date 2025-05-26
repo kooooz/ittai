@@ -1,61 +1,98 @@
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+"use client"
 
-const featuredProjects = [
+import Image from "next/image"
+import Footer from "@/components/footer"
+import Header from "@/components/header"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useState } from "react"
+
+const projects = [
   {
     id: "01",
-    title: "Mid century kitchen, Los Angeles, USA",
-    description:
-      "A harmonious blend of mid-century modern aesthetics and contemporary functionality, featuring a striking island crafted from Italian Calacatta marble.",
+    title: "Mid Century Kitchen",
+    image: "/ittai-project-01-mid-century-kitchen.png",
   },
   {
     id: "02",
-    title: "Minimalistic block, Berlin, Germany",
-    description:
-      "Pure geometric precision defines this minimalist Berlin kitchen, where a monolithic granite island creates a powerful centerpiece in a restrained space.",
+    title: "Minimalistic Block",
+    image: "/ittai-project-02-minimalistic-block.png",
   },
   {
     id: "03",
-    title: "Rough Stone block kitchen, Oslo, Norway",
-    description:
-      "Embracing the raw beauty of natural stone, this Oslo kitchen features a textured basalt island that celebrates the material's volcanic origins.",
+    title: "Grey Stone Block",
+    image: "/ittai-project-03-grey-stone-block.png",
   },
   {
     id: "04",
-    title: "Loft style kitchen, New York, USA",
-    description:
-      "Industrial heritage meets luxury in this New York loft, where a substantial travertine island anchors the open-concept living space.",
+    title: "Loft Style Kitchen",
+    image: "/ittai-project-04-loft-style-kitchen.png",
   },
   {
     id: "05",
-    title: "Grey Stone block, Amsterdam, Netherlands",
-    description:
-      "Subtle sophistication defines this Amsterdam kitchen, with a precisely crafted grey limestone island that complements the canal house's historic character.",
+    title: "Rough Stone Block Kitchen",
+    image: "/ittai-project-03-rough-stone-block-kitchen.png",
   },
 ]
 
-export default function ProjectsPage() {
+export default function Projects() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1))
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1))
+  }
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col">
+      {/* Header */}
       <Header />
 
-      {/* Projects List */}
-      <section className="py-20 px-6 bg-white mt-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-12">
-            {featuredProjects.map((project) => (
-              <div key={project.id} className="grid grid-cols-[auto_1fr] gap-8">
-                <div className="text-[#4F4F4F] font-geist-mono text-xs">{project.id}</div>
-                <div>
-                  <h3 className="text-lg font-bold mb-2 font-din-condensed">{project.title}</h3>
-                  <p className="text-[#4F4F4F] font-geist text-sm">{project.description}</p>
-                </div>
-              </div>
-            ))}
+      {/* Projects Carousel */}
+      <section className="relative h-screen">
+        <div className="absolute inset-0">
+          <Image
+            src={projects[currentIndex].image}
+            alt={projects[currentIndex].title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="text-center text-white p-6 max-w-3xl">
+            <div className="text-xs font-medium mb-2 font-geist-mono tracking-wide">
+              {projects[currentIndex].id}
+            </div>
+            <h1 className="text-[45px] font-inter font-medium mb-6 leading-tight tracking-wide uppercase">
+              {projects[currentIndex].title}
+            </h1>
           </div>
         </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-8 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-colors"
+          aria-label="Previous project"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        <button
+          onClick={handleNext}
+          className="absolute right-8 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-colors"
+          aria-label="Next project"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
       </section>
 
+      {/* Footer */}
       <Footer />
     </div>
   )

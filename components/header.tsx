@@ -37,7 +37,7 @@ export default function Header() {
         </div>
 
         <nav className="absolute left-1/2 transform -translate-x-1/2">
-          <ul className={`flex space-x-8 ${textColor} font-geist text-xs`}>
+          <ul className={`flex space-x-8 ${textColor} font-geist text-sm`}>
             <li>
               <Link href="/material" className="hover:underline underline-offset-8 decoration-2">
                 Material
@@ -53,11 +53,6 @@ export default function Header() {
                 Craftsmanship
               </Link>
             </li>
-            <li>
-              <Link href="/sourcing" className="hover:underline underline-offset-8 decoration-2">
-                Sourcing
-              </Link>
-            </li>
           </ul>
         </nav>
 
@@ -65,7 +60,7 @@ export default function Header() {
         <div>
           <Link
             href="/contact"
-            className="bg-black text-white font-geist-mono text-xs px-4 py-2 hover:bg-black/80 transition-colors"
+            className="bg-black text-white font-geist-mono text-sm px-4 py-2 hover:bg-black/80 transition-colors"
           >
             Contact
           </Link>

@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Logo from "./logo"
+import { Instagram } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -32,6 +33,17 @@ export default function Footer() {
                 <Link href="/contact" className="hover:underline">
                   Contact
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/ittai.studio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline inline-flex items-center"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="w-3 h-3" />
+                </a>
               </li>
             </ul>
           </nav>

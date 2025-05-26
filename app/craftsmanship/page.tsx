@@ -1,76 +1,111 @@
+"use client"
+
 import Image from "next/image"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
+import Header from "@/components/header"
 
-export default function CraftsmanshipPage() {
+export default function Craftsmanship() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-
+    <div className="relative min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[70vh]">
+      <section className="relative h-screen">
+        {/* Hero Video Background */}
         <div className="absolute inset-0 z-0">
-          <Image src="/craftsmanship-hero.png" alt="Master Craftspeople" fill priority className="object-cover" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="object-cover w-full h-full"
+          >
+            <source src="/ittai-Kitchen_Block_Flyover_Video_Ready.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        {/* Header */}
+        <Header />
+
+        {/* Hero Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="text-center text-white p-6 max-w-3xl">
+            <h1 className="text-[45px] font-inter font-medium mb-6 leading-tight tracking-wide uppercase">
+              Masterful Craftsmanship
+            </h1>
+            <p className="text-base font-geist-mono font-light tracking-tight">
+              Where tradition meets innovation
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Craftsmanship Process */}
+      {/* Content Sections */}
       <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="text-xs font-medium mb-16 font-geist-mono tracking-wide text-center">Our process</h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-32">
+        <div className="max-w-7xl mx-auto space-y-20">
+          {/* Section 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/ittai-craft-01.png"
+                alt="Craftsmanship Process"
+                fill
+                className="object-cover"
+              />
+            </div>
             <div>
-              <div className="relative aspect-square mb-6">
-                <Image src="/craftsmanship-design.png" alt="Design Process" fill className="object-cover" />
-              </div>
-              <h4 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">German design precision</h4>
+              <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Precision Engineering</h3>
               <p className="text-[#4F4F4F] font-geist">
-                Our design process begins in Germany, where our team develops each kitchen block concept with meticulous
-                attention to proportion, function, and material character. Every dimension is considered, every detail
-                refined.
+                Our material journey begins with careful selection at the quarry. We personally inspect each stone
+                slab, evaluating its structural integrity, color consistency, and unique character. Using traditional
+                techniques alongside modern technology, we extract blocks with minimal waste and maximum respect for
+                the natural formation.
               </p>
             </div>
+          </div>
 
+          {/* Section 2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/ittai-craft-02.png"
+                alt="Craftsmanship Process"
+                fill
+                className="object-cover"
+              />
+            </div>
             <div>
-              <div className="relative aspect-square mb-6">
-                <Image src="/craftsmanship-material.png" alt="Material Selection" fill className="object-cover" />
-              </div>
-              <h4 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Material selection</h4>
+              <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Artisanal Techniques</h3>
               <p className="text-[#4F4F4F] font-geist">
-                Each project begins with the careful selection of the perfect stone. We work directly with quarries to
-                identify blocks with exceptional character, considering both aesthetic qualities and structural
-                integrity.
+                Each stone is cut, shaped, and finished by master craftspeople in Italy, using techniques refined over
+                generations to highlight the material's natural beauty. Our artisans combine traditional methods with
+                cutting-edge technology to achieve perfect precision and finish.
               </p>
             </div>
+          </div>
 
-            <div>
-              <div className="relative aspect-square mb-6">
-                <Image src="/craftsmanship-cutting.png" alt="Precision Cutting" fill className="object-cover" />
-              </div>
-              <h4 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Precision cutting</h4>
-              <p className="text-[#4F4F4F] font-geist">
-                Using advanced CNC technology guided by master technicians, we cut each stone with sub-millimeter
-                precision. This marriage of traditional knowledge and modern tools ensures perfect execution of complex
-                forms.
-              </p>
+          {/* Section 3 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/ittai-craft-03.png"
+                alt="Craftsmanship Process"
+                fill
+                className="object-cover"
+              />
             </div>
-
             <div>
-              <div className="relative aspect-square mb-6">
-                <Image src="/craftsmanship-finishing.png" alt="Hand Finishing" fill className="object-cover" />
-              </div>
-              <h4 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Hand finishing</h4>
+              <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Perfect Installation</h3>
               <p className="text-[#4F4F4F] font-geist">
-                The final transformation happens by hand. Our artisans apply traditional techniques to create textured
-                surfaces, polished edges, and seamless joints that highlight each stone's unique character.
+                The final step brings your selected material into your space, installed with precision by specialists
+                who understand the unique properties of each stone type. Our installation team ensures that every
+                detail is perfect, creating a seamless integration with your space.
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Footer */}
       <Footer />
     </div>
   )

@@ -1,48 +1,76 @@
-import Header from "@/components/header"
+"use client"
+
+import Image from "next/image"
 import Footer from "@/components/footer"
+import Header from "@/components/header"
 
-export default function MaterialPage() {
+export default function Material() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <div className="relative min-h-screen flex flex-col">
+      {/* Hero Section */}
+      <section className="relative h-screen">
+        {/* Hero Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="object-cover w-full h-full"
+          >
+            <source src="/ittai-Video_Ready_Link_Provided.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
 
-      {/* Material Process */}
-      <section className="py-20 px-6 bg-white mt-16">
+        {/* Header */}
+        <Header />
+
+        {/* Hero Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="text-center text-white p-6 max-w-3xl">
+            <h1 className="text-[45px] font-inter font-medium mb-6 leading-tight tracking-wide uppercase">
+              Natural Stone Selection
+            </h1>
+            <p className="text-base font-geist-mono font-light tracking-tight">
+              Each piece tells a story of time and nature
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-3xl font-bold font-din-condensed">From quarry to kitchen</h2>
+              <h2 className="text-3xl font-bold font-inter">Our Materials</h2>
             </div>
             <div className="space-y-8">
               <div>
-                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Selection</h3>
+                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Natural Beauty</h3>
                 <p className="text-[#4F4F4F] font-geist">
-                  Our material journey begins with careful selection at the quarry. We personally inspect each stone
-                  slab, evaluating its structural integrity, color consistency, and unique character.
+                  We work exclusively with uniquely selected natural stones from Italy, each block a testament to
+                  timeless beauty and raw elegance. These are not just surfaces—they're statements. Solid, enduring, and
+                  full of natural character, our kitchen blocks are the centerpiece of a space where life unfolds.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Extraction</h3>
+                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Quality Selection</h3>
                 <p className="text-[#4F4F4F] font-geist">
-                  Using traditional techniques alongside modern technology, we extract blocks with minimal waste and
-                  maximum respect for the natural formation.
+                  Each piece is carefully selected for its unique characteristics and quality. Our design process balances
+                  form, function, and proportion to ensure your kitchen feels sculptural—yet made to live in. No
+                  compromises. Just a perfect fit, made for your home.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Processing</h3>
+                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Expert Craftsmanship</h3>
                 <p className="text-[#4F4F4F] font-geist">
-                  Each stone is cut, shaped, and finished by master craftspeople in Italy, using techniques refined over
-                  generations to highlight the material's natural beauty.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xs font-medium mb-3 font-geist-mono tracking-wide">Installation</h3>
-                <p className="text-[#4F4F4F] font-geist">
-                  The final step brings your selected material into your space, installed with precision by specialists
-                  who understand the unique properties of each stone type.
+                  From stone experts and milling specialists to our design team and logistics partners, we only work
+                  with the best. The result: a seamless experience, from first sketch to final installation. No stress,
+                  just expert hands all the way.
                 </p>
               </div>
             </div>
@@ -50,6 +78,7 @@ export default function MaterialPage() {
         </div>
       </section>
 
+      {/* Footer */}
       <Footer />
     </div>
   )
