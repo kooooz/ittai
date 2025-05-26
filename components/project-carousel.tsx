@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -35,92 +35,65 @@ const projects = [
 export default function ProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Create an array that includes the last two and first two items for infinite scroll
-  const extendedProjects = [
-    ...projects.slice(-2),
-    ...projects,
-    ...projects.slice(0, 2),
-  ]
-
   const handlePrev = () => {
-    setCurrentIndex((prev) => {
-      if (prev === 0) {
-        return projects.length - 1
-      }
-      return prev - 1
-    })
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1))
   }
 
   const handleNext = () => {
-    setCurrentIndex((prev) => {
-      if (prev === projects.length - 1) {
-        return 0
-      }
-      return prev + 1
-    })
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1))
   }
 
-  // Handle infinite scroll transition
-  useEffect(() => {
-    if (currentIndex === 0) {
-      const timer = setTimeout(() => {
-        setCurrentIndex(projects.length)
-      }, 50)
-      return () => clearTimeout(timer)
+  // Get the three visible projects
+  const getVisibleProjects = () => {
+    const visibleProjects = []
+    for (let i = 0; i < 3; i++) {
+      const index = (currentIndex + i) % projects.length
+      visibleProjects.push(projects[index])
     }
-    if (currentIndex === projects.length + 1) {
-      const timer = setTimeout(() => {
-        setCurrentIndex(1)
-      }, 50)
-      return () => clearTimeout(timer)
-    }
-  }, [currentIndex])
+    return visibleProjects
+  }
 
   return (
-    <div className="relative w-full overflow-hidden">
-      <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{
-          transform: `translateX(-${(currentIndex + 2) * (100 / 3)}%)`,
-          width: `${(extendedProjects.length * 100) / 3}%`,
-        }}
-      >
-        {extendedProjects.map((project, index) => (
-          <div
-            key={`${project.id}-${index}`}
-            className="w-1/3 flex-shrink-0 px-4"
-          >
-            <div className="relative aspect-[4/3] mb-4">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover"
-              />
+    <div className="relative w-full">
+      <div className="flex justify-between items-center gap-8">
+        {/* Left Arrow */}
+        <button
+          onClick={handlePrev}
+          className="flex-shrink-0 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-colors"
+          aria-label="Previous project"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        {/* Projects */}
+        <div className="flex-1 flex gap-8">
+          {getVisibleProjects().map((project) => (
+            <div key={project.id} className="flex-1">
+              <div className="relative aspect-[4/3] mb-4">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="text-xs font-medium mb-2 font-geist-mono tracking-wide">
+                {project.id}
+              </div>
+              <h3 className="text-sm font-medium font-inter">{project.title}</h3>
             </div>
-            <div className="text-xs font-medium mb-2 font-geist-mono tracking-wide">
-              {project.id}
-            </div>
-            <h3 className="text-lg font-medium font-inter">{project.title}</h3>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Right Arrow */}
+        <button
+          onClick={handleNext}
+          className="flex-shrink-0 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-colors"
+          aria-label="Next project"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
       </div>
-
-      <button
-        onClick={handlePrev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-colors"
-        aria-label="Previous project"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-
-      <button
-        onClick={handleNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-colors"
-        aria-label="Next project"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
     </div>
   )
 }
