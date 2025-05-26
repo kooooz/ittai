@@ -42,7 +42,7 @@ export default function Footer() {
                   className="hover:underline inline-flex items-center"
                   aria-label="Follow us on Instagram"
                 >
-                  <Instagram className="w-3 h-3" />
+                  <Instagram className="w-4 h-4" />
                 </a>
               </li>
             </ul>

@@ -39,26 +39,27 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/projects" className="text-sm font-geist text-[#4F4F4F]">
+          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+            <Link href="/projects" className={`text-sm font-geist ${textColor}`}>
               Projects
             </Link>
-            <Link href="/material" className="text-sm font-geist text-[#4F4F4F]">
+            <Link href="/material" className={`text-sm font-geist ${textColor}`}>
               Material
             </Link>
-            <Link href="/craftsmanship" className="text-sm font-geist text-[#4F4F4F]">
+            <Link href="/craftsmanship" className={`text-sm font-geist ${textColor}`}>
               Craftsmanship
             </Link>
-            <Link href="/company" className="text-sm font-geist text-[#4F4F4F]">
-              Company
-            </Link>
+          </nav>
+
+          {/* Contact Button */}
+          <div className="hidden md:block">
             <Link
               href="/contact"
               className="text-sm font-geist text-white bg-black px-6 py-2 rounded-full hover:bg-gray-800 transition-colors"
             >
               Contact
             </Link>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <button

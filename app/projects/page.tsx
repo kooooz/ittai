@@ -8,28 +8,29 @@ import { useState } from "react"
 
 const projects = [
   {
-    id: 1,
-    title: "Modern Kitchen Design",
-    description: "A contemporary kitchen featuring natural stone countertops and minimalist design elements.",
-    image: "/ittai-project-01.png",
+    id: "01",
+    title: "Mid Century Kitchen",
+    image: "/ittai-project-01-mid-century-kitchen.png",
   },
   {
-    id: 2,
-    title: "Luxury Bathroom Renovation",
-    description: "Complete bathroom transformation with premium materials and custom fixtures.",
-    image: "/ittai-project-02.png",
+    id: "02",
+    title: "Minimalistic Block",
+    image: "/ittai-project-02-minimalistic-block.png",
   },
   {
-    id: 3,
-    title: "Residential Interior Project",
-    description: "Comprehensive interior design project showcasing our attention to detail and craftsmanship.",
-    image: "/ittai-project-03.png",
+    id: "03",
+    title: "Grey Stone Block",
+    image: "/ittai-project-03-grey-stone-block.png",
   },
   {
-    id: 4,
-    title: "Commercial Space Design",
-    description: "Modern office space featuring custom stone elements and innovative design solutions.",
-    image: "/ittai-project-04.png",
+    id: "04",
+    title: "Loft Style Kitchen",
+    image: "/ittai-project-04-loft-style-kitchen.png",
+  },
+  {
+    id: "05",
+    title: "Rough Stone Block Kitchen",
+    image: "/ittai-project-03-rough-stone-block-kitchen.png",
   },
 ]
 
@@ -52,8 +53,8 @@ export default function Projects() {
       <main className="flex-grow">
         <div className="max-w-4xl mx-auto px-6 py-16">
           <div className="text-center mb-12">
+            <div className="text-sm font-geist-mono mb-4">{currentProject.id}</div>
             <h1 className="text-4xl font-geist mb-4">{currentProject.title}</h1>
-            <p className="text-lg text-[#4F4F4F]">{currentProject.description}</p>
           </div>
 
           <div className="relative aspect-[3/2] mb-12">
