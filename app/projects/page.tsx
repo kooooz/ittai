@@ -51,26 +51,24 @@ export default function Projects() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
-        <div className="max-w-4xl mx-auto px-6 py-16">
-          <div className="text-center mb-8">
-            <div className="text-xs font-geist-mono mb-4">{currentProject.id}</div>
+        <div className="max-w-4xl mx-auto px-6 py-24">
+          <div className="relative">
+            <div className="text-xs font-geist-mono mb-2 ml-2">{currentProject.id}</div>
+            <div className="relative aspect-[3/2] mb-2">
+              <Image
+                src={currentProject.image}
+                alt={currentProject.title}
+                fill
+                className="object-cover rounded-lg"
+                priority
+              />
+            </div>
+            <div className="ml-2">
+              <h1 className="text-sm font-geist-mono">{currentProject.title}</h1>
+            </div>
           </div>
 
-          <div className="relative aspect-[3/2] mb-8">
-            <Image
-              src={currentProject.image}
-              alt={currentProject.title}
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
-          </div>
-
-          <div className="text-center mb-12">
-            <h1 className="text-sm font-geist-mono">{currentProject.title}</h1>
-          </div>
-
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-4 mt-8">
             <button
               onClick={prevProject}
               className="p-2 rounded-full hover:bg-gray-100 transition-colors"

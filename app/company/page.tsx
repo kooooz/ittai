@@ -23,34 +23,26 @@ export default function Company() {
         {/* Content Section */}
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl font-geist mb-6">Our Philosophy</h1>
-              <p className="text-lg text-[#4F4F4F] max-w-3xl mx-auto">
-                We believe in creating timeless spaces that blend natural materials with contemporary design, 
-                focusing on quality craftsmanship and attention to detail.
-              </p>
-            </div>
-
             <div className="grid md:grid-cols-3 gap-12">
               <div className="text-center">
-                <h2 className="text-xl font-geist mb-4">Design Excellence</h2>
-                <p className="text-[#4F4F4F]">
-                  Our designs are characterized by clean lines, thoughtful proportions, and a harmonious balance 
-                  between form and function.
+                <h2 className="text-sm font-geist-mono mb-4">Design Excellence</h2>
+                <p className="text-sm font-geist text-[#4F4F4F]">
+                  We combine innovative design with timeless aesthetics, creating spaces that are both 
+                  beautiful and functional.
                 </p>
               </div>
               <div className="text-center">
-                <h2 className="text-xl font-geist mb-4">Artisanal Craft</h2>
-                <p className="text-[#4F4F4F]">
-                  We combine traditional craftsmanship with modern techniques to create unique, high-quality 
-                  interior solutions.
+                <h2 className="text-sm font-geist-mono mb-4">Artisanal Craft</h2>
+                <p className="text-sm font-geist text-[#4F4F4F]">
+                  Our skilled craftsmen bring decades of experience to every project, ensuring the highest 
+                  quality in every detail.
                 </p>
               </div>
               <div className="text-center">
-                <h2 className="text-xl font-geist mb-4">Material Integrity</h2>
-                <p className="text-[#4F4F4F]">
-                  We carefully select and work with premium materials, ensuring each element contributes to 
-                  the overall quality and longevity of our projects.
+                <h2 className="text-sm font-geist-mono mb-4">Material Integrity</h2>
+                <p className="text-sm font-geist text-[#4F4F4F]">
+                  We carefully select and work with the finest materials, creating pieces that stand the 
+                  test of time.
                 </p>
               </div>
             </div>

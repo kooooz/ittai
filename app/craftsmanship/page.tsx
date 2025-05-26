@@ -37,8 +37,8 @@ export default function Craftsmanship() {
                   />
                 </div>
                 <div className="w-full md:w-1/2">
-                  <h2 className="text-xl font-geist mb-4">Precision Engineering</h2>
-                  <p className="text-[#4F4F4F]">
+                  <h2 className="text-sm font-geist-mono mb-4">Precision Engineering</h2>
+                  <p className="text-sm font-geist text-[#4F4F4F]">
                     Our state-of-the-art machinery and skilled craftsmen work together to create precise, 
                     high-quality stone elements that meet the most demanding specifications.
                   </p>
@@ -56,8 +56,8 @@ export default function Craftsmanship() {
                   />
                 </div>
                 <div className="w-full md:w-1/2">
-                  <h2 className="text-xl font-geist mb-4">Artisanal Techniques</h2>
-                  <p className="text-[#4F4F4F]">
+                  <h2 className="text-sm font-geist-mono mb-4">Artisanal Techniques</h2>
+                  <p className="text-sm font-geist text-[#4F4F4F]">
                     Combining traditional craftsmanship with modern technology, we create unique pieces 
                     that showcase the natural beauty of stone while meeting contemporary design needs.
                   </p>
@@ -75,8 +75,8 @@ export default function Craftsmanship() {
                   />
                 </div>
                 <div className="w-full md:w-1/2">
-                  <h2 className="text-xl font-geist mb-4">Perfect Installation</h2>
-                  <p className="text-[#4F4F4F]">
+                  <h2 className="text-sm font-geist-mono mb-4">Perfect Installation</h2>
+                  <p className="text-sm font-geist text-[#4F4F4F]">
                     Our experienced installation team ensures that every piece is perfectly placed, 
                     creating seamless transitions and flawless finishes in your space.
                   </p>
